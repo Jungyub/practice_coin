@@ -37,9 +37,62 @@ const Main = () => {
   //   setResultArr(results);
   // };
 
-  return <MainContainer>123</MainContainer>;
+  // return (
+  //   <MainContainer>
+  //     <MainWrap>
+  //       <TableContainer>
+  //         <TableWrap>
+  //           <thead>
+  //             <tr>
+  //               <th>이름</th>
+  //               <th>현재가</th>
+  //               <th>변동</th>
+  //               <th>최고가</th>
+  //               <th>최저가</th>
+  //               <th>거래대금</th>
+  //             </tr>
+  //           </thead>
+  //           <tbody>
+  //             {resultArr &&
+  //               resultArr.map((result, idx) => (
+  //                 <Card
+  //                   key={idx}
+  //                   name={result.name}
+  //                   baseAsset={result.baseAsset}
+  //                   quoteAsset={result.quoteAsset}
+  //                   open={result.open}
+  //                   close={result.close}
+  //                   high={result.high}
+  //                   low={result.low}
+  //                   volume={result.volume}
+  //                 />
+  //               ))}
+  //           </tbody>
+  //         </TableWrap>
+  //       </TableContainer>
+  //     </MainWrap>
+  //   </MainContainer>
+  // );
+
+  return (
+    <MainContainer>
+      <TitleWrap>
+        <ListTitle>{"가상자산 시세 목록"}</ListTitle>
+        <BookmarkTitle>{"북마크 목록"}</BookmarkTitle>
+      </TitleWrap>
+    </MainContainer>
+  );
 };
 
 export default withRouter(Main);
 
 const MainContainer = styled.div``;
+
+const TitleWrap = styled.div`
+  display: flex;
+  font-size: 20px;
+`;
+
+const ListTitle = styled.div``;
+
+const BookmarkTitle = styled.div``;
