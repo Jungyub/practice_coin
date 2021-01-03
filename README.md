@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+#  코인 리스트, 디테일 페이지 구현 연습 (npm run start 명령어로 실행)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Stack and Tools
+- React.js
+- styled-components
+- Git / Github
 
-## Available Scripts
+## Library
+- create-react-app
+- react-dom
+- react-router-dom
 
-In the project directory, you can run:
+## Goal
+1. 메인페이지 내 코인 리스트 및 가격 정보 보여주기 (CoinGecko의 API 활용)
+2. 북마크 기능을 추가하여 페이지 리로드 후에도 저장된 코인 표시하기 (localStorage 이용하여 구현함)
+3. 메인페이지 내 3가지 select box(전체보기/북마크보기, KRW/USD, 10/30/50개 씩 보기) 선택 시 원하는 내용이 보여지도록 구현
+4. 디테일페이지 내 Coin과 KRW/USD 자동 계산이 될 수 있도록 input box 구현하기
+5. 북마크 추가 및 해지 시 toast 메시지 띄우기
+6. API 호출 시 Loading Spin 삽입하기
+7. Chrome, Safari, Firefox, Edge 등 크로스 브라우징 확인하기
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Description
+### Main.js
+- 3가지 select box에 따라 List를 다르게 뿌려 줌
+- 북마크 아이콘 클릭에 따른 상태 변경 (새로고침 시에도 상태 저장)
+- 북마크 모아보기/해제하기 기능
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Card.js
+- Main.js에 렌더링 되는 사진 컴포넌트
 
-### `yarn test`
+### Detail.js
+- 메인페이지에서 코인명 클릭 시 넘어가는 디테일 페이지
+- KRW/USD select box에 따라 데이터 변환됨
+- 코인 가격 자동 계산 기능
+- Description 보여주기(kr, us 순으로 확인)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Review
+1. 단순 시간적 여유가 부족해 구현하지 못한 부분
+- Loading Spin, toast 메시지 삽입하지 못함
+- 가격 변화율이 양수, 음수일 경우 텍스트 색상이 변경되지 않음
+2. 막히는 부분이 생겨 구현하지 못한 부분
+- 북마크 기능 구현 시 디테일에서도 가능하게 하는 것을 처음에 생각하지 못해 로직 상 다시 짜야하는 상황이 발생함 (현재 디테일페이지 내 북마크 기능 작동하지 않음)
+- 디테일페이지 내 가격 자동계산에 대한 로직 부재 (정규표현식까지 적용하였고, 자동계산에 대한 부분은 시간 부족 및 막히는 부분이 생겨 조금 더 생각해볼 필요가 있음!)
+3. 많이 고민하고 정상적으로 구현되어 만족했던 부분
+- 여러 가지 select box에 따라 선택적 데이터를 보여주는 기능
+- 중요하지 않을 수도 있지만 UI적인 측면에서도 최대한 실제 운영하는 사이트와 비슷하게 가려고 시간을 많이 쏟았다.
