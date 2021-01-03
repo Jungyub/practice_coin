@@ -92,8 +92,6 @@ const Main = () => {
     history.push("/bookmark");
   };
 
-  // console.log(coinList);
-
   return (
     <MainContainer>
       <TitleWrapper>
@@ -233,24 +231,9 @@ const SelectBoxWrapper = styled.div`
 `;
 
 const SelectAll = styled.select`
-  /* -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none; */
   border: none;
   margin: 20px;
   cursor: pointer;
-  /* &:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    width: 0;
-    height: 0;
-    margin-top: -1px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #333;
-  } */
 `;
 
 const SelectCurrency = styled(SelectAll)``;

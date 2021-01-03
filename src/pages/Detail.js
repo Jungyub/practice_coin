@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import styled from "styled-components";
 import url from "../config";
-import Loading from "../components/Loading";
 import CompareIcon from "../images/compare_arrows.png";
 
 const Detail = ({ location }) => {
@@ -10,7 +9,6 @@ const Detail = ({ location }) => {
   const [currency, setCurrency] = useState("krw");
   const [cryptoValue, setCryptoValue] = useState();
   const [currencyValue, setCurrencyValue] = useState();
-  const [test, setTest] = useState();
   const [activeIcon, setActiveIcon] = useState(false);
 
   const getQueryVariable = (variable) => {
@@ -60,12 +58,6 @@ const Detail = ({ location }) => {
   const handleCurrency = (e) => {
     const value = e.target.value.replace(/[^0-9.]/g, "");
     setCurrencyValue(value);
-  };
-
-  const calculateCrypto = () => {
-    const ratio = details.market_data?.current_price;
-    const crypto = currencyValue / ratio;
-    setTest(crypto);
   };
 
   // const handleBookmark = () => {

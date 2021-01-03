@@ -16,7 +16,6 @@ const Card = ({
   isBookmark,
 }) => {
   const [activeIcon, setActiveIcon] = useState(false);
-  const [changeColor, setChangeColor] = useState(false);
 
   const history = useHistory();
 
