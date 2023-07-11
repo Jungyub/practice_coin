@@ -1,3 +1,3 @@
-const url = "https://api.coingecko.com/api/v3";
+const url = "https://www.coingecko.com/api/documentations/v3#/";
 
 export default url;
